@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="screen start-screen active" id="startScreen" aria-labelledby="appTitle">
+      <div class="brand-mark">AQ</div>
+      <h1 id="appTitle">Advanced Quiz App</h1>
+      <p class="intro">Answer timed questions, build your score, and claim a place on the leaderboard.</p>
+
+      <form class="start-form" id="startForm">
+        <label for="playerName">Player name</label>
+        <input type="text" id="playerName" name="playerName" placeholder="Enter player name" maxlength="24" autocomplete="name" required>
+        <button type="submit">Start Quiz</button>
+      </form>
+    </section>
+
+    <section class="screen quiz-screen" id="quizScreen" aria-live="polite">
+      <header class="quiz-topbar">
+        <div>
+          <p class="eyebrow" id="progressText">Question 1 / 10</p>
+          <h2 id="questionText">Question text</h2>
+        </div>
+        <div class="timer-card" aria-label="Question timer">
+          <span id="timerText">15</span>
+          <small>seconds</small>
+        </div>
+      </header>
+
+      <div class="progress-track" aria-hidden="true">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="score-strip">
+        <span>Player: <strong id="activePlayer">Player</strong></span>
+        <span>Score: <strong id="scoreText">0</strong></span>
+      </div>
+
+      <div class="options-grid" id="optionsGrid"></div>
+    </section>
+
+    <section class="screen result-screen" id="resultScreen">
+      <div class="result-card">
+        <p class="eyebrow">Quiz complete</p>
+        <h2>Nice run, <span id="resultName">Player</span>.</h2>
+        <div class="result-stats">
+          <div>
+            <span id="finalScore">0</span>
+            <small>Total score</small>
+          </div>
+          <div>
+            <span id="correctCount">0</span>
+            <small>Correct answers</small>
+          </div>
+        </div>
+        <button type="button" id="playAgainBtn">Play Again</button>
+      </div>
+
+      <aside class="leaderboard">
+        <div class="leaderboard-head">
+          <h2>Leaderboard</h2>
+          <button type="button" id="clearLeaderboardBtn" class="ghost-button" title="Clear leaderboard">Clear</button>
+        </div>
+        <ol id="leaderboardList"></ol>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
